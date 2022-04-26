@@ -20,7 +20,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('relevance');
-  const [maxResults, setMaxResults] = useState(5);
   const [startIndex, setStartIndex] = useState(0);
   const [totalItem, setTotalItem] = useState()
 
@@ -39,7 +38,7 @@ function App() {
     setLoading(true);
     let queryCategory
     category == 'all' ? queryCategory = '' : queryCategory = category
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${query}+subject:${queryCategory}&orderBy=${sort}&maxResults=${maxResults}&startIndex=${startIndex}&key=${process.env.REACT_APP_API_KEY}`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${query}+subject:${queryCategory}&orderBy=${sort}&maxResults=30&startIndex=${startIndex}&key=${process.env.REACT_APP_API_KEY}`)
       .then(response => {
         setTotalItem(response.data.totalItems)
         setState(state.concat(response.data.items))
@@ -93,7 +92,7 @@ function App() {
   }
 
   const loadMore = () => {
-    setStartIndex(startIndex + 5)
+    setStartIndex(startIndex + 30)
     findBooks()
   }
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,22 +9,26 @@ import ScrollDialog from './ScrollDialog';
 
 function Book({ img, title, category, author, item }) {
   return (
-    <Card sx={{ width: 250, height: 350 }}>
+    <Card sx={{ width: 250, height: 400 }}>
       <CardContent >
-        <CardMedia sx={{ width: 100}}
+      <Box sx={{ width: 200, height: 300, m:1}}>
+        <CardMedia sx={{ width: 100, height: 150}}
           component="img"
           image={img}
           alt="no image"
         />
-        <Typography sx={{ fontSize: 14, textDecoration: 'underline' }} color="text.secondary" >
-          {category}
-        </Typography>
-        <Typography sx={{ fontSize: 20, font: 'bold' }} variant="body1">
-          {title}
-        </Typography>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary">
-          {author}
-        </Typography>
+        
+          <Typography sx={{ fontSize: 14, textDecoration: 'underline', m:1 }} color="text.secondary" >
+            {category}
+          </Typography>
+          <Typography sx={{ fontSize: 18, font: 'bold'  }} variant="body1">
+            {title}
+          </Typography>
+          <Typography sx={{ fontSize: 14  }} color="text.secondary">
+            {author}
+          </Typography>
+        </Box>
+        
       </CardContent>
       <CardActions gutterBottom sx={{ ml: '18%'}}>
         <ScrollDialog
