@@ -8,14 +8,14 @@ import ScrollDialog from './ScrollDialog';
 
 function Book({ img, title, category, author, item }) {
   return (
-    <Card sx={{ minWidth: 200, minHeight: 340 }}>
+    <Card sx={{ width: 250, height: 350 }}>
       <CardContent >
-        <CardMedia sx={{ maxWidth: 100, minWidth: 100 }}
+        <CardMedia sx={{ width: 100}}
           component="img"
           image={img}
           alt="no image"
         />
-        <Typography sx={{ fontSize: 14, textDecoration: 'underline' }} color="text.secondary" gutterBottom>
+        <Typography sx={{ fontSize: 14, textDecoration: 'underline' }} color="text.secondary" >
           {category}
         </Typography>
         <Typography sx={{ fontSize: 20, font: 'bold' }} variant="body1">
@@ -25,7 +25,7 @@ function Book({ img, title, category, author, item }) {
           {author}
         </Typography>
       </CardContent>
-      <CardActions sx={{ ml: '25%' }}>
+      <CardActions gutterBottom sx={{ ml: '18%'}}>
         <ScrollDialog
           thumbnail={img}
           title={item.volumeInfo.title}

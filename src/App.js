@@ -14,10 +14,6 @@ import Select from '@mui/material/Select';
 import Book from './Book';
 
 function App() {
-  
-  //y
-  //require('dotenv').config()
-  console.log(process.env)
 
   const [query, setQuery] = useState('')
   const [state, setState] = useState([])
