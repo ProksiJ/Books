@@ -8,6 +8,9 @@ import Typography from '@mui/material/Typography';
 import ScrollDialog from './ScrollDialog';
 
 function Book({ img, title, category, author, item }) {
+  let name
+  if (title.length > 50){ name = title.slice(0, 50) + '...'}
+  else name = title
   return (
     <Card sx={{ width: 250, height: 400 }}>
       <CardContent >
@@ -21,8 +24,8 @@ function Book({ img, title, category, author, item }) {
           <Typography sx={{ fontSize: 14, textDecoration: 'underline', m:1 }} color="text.secondary" >
             {category}
           </Typography>
-          <Typography sx={{ fontSize: 18, font: 'bold'  }} variant="body1">
-            {title}
+          <Typography sx={{ fontSize: 16, font: 'bold'  }}>
+            {name}
           </Typography>
           <Typography sx={{ fontSize: 14  }} color="text.secondary">
             {author}
